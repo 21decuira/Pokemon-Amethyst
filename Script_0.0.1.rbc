@@ -12,7 +12,7 @@ special 0x174
 textcolor 0x0
 pause 0x1E
 playsong 0x12E 0x0
-preparemsg 0x817D7A4 '"OAK: Hey! Wait!\nDon't go out!"
+preparemsg 0x817D7A4 '"Professor Aspen: Hey! Wait!\nDon't go out!"
 waitmsg
 pause 0x55
 closeonkeypress
@@ -28,7 +28,7 @@ if 0x1 call 0x8165730
 compare 0x4001 0x1
 if 0x1 call 0x816573B
 pause 0x1E
-msgbox 0x817D7C2 MSG_KEEPOPEN '"OAK: It's unsafe!\nWild POKÈMON li..."
+msgbox 0x817D7C2 MSG_KEEPOPEN '"Professor Aspen: It's unsafe!\nWild POKÈMON li..."
 closeonkeypress
 pause 0x1E
 compare 0x4001 0x0
@@ -112,26 +112,26 @@ return
 #raw 0xFE 'End of Movements
 
 #org 0x16576A
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0x13 'Step Right (Normal)
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0x13 'Step Right (Normal)
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0xFE 'End of Movements
 
 #org 0x165773
 #raw 0x13 'Step Right (Normal)
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0x13 'Step Right (Normal)
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0x13 'Step Right (Normal)
-#raw 0x11 'Step Up (Normal)
-#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Down (Normal)
+#raw 0x11 'Step Down (Normal)
 #raw 0xFE 'End of Movements
 
 #org 0x16577D
