@@ -1,0 +1,223 @@
+'---------------
+#org 0x165671
+lockall
+setvar 0x4001 0x1
+goto 0x816567D
+
+'---------------
+#org 0x16567D
+setvar 0x8004 0x0
+setvar 0x8005 0x2
+special 0x174
+textcolor 0x0
+pause 0x1E
+playsong 0x12E 0x0
+preparemsg 0x817D7A4 '"OAK: Hey! Wait!\nDon't go out!"
+waitmsg
+pause 0x55
+closeonkeypress
+applymovement MOVE_PLAYER 0x81A7665
+waitmovement 0x0
+sound 0x15
+applymovement MOVE_PLAYER 0x81A7653
+waitmovement 0x0
+pause 0x1E
+showsprite 0x3
+compare 0x4001 0x0
+if 0x1 call 0x8165730
+compare 0x4001 0x1
+if 0x1 call 0x816573B
+pause 0x1E
+msgbox 0x817D7C2 MSG_KEEPOPEN '"OAK: It's unsafe!\nWild POKÈMON li..."
+closeonkeypress
+pause 0x1E
+compare 0x4001 0x0
+if 0x1 call 0x8165746
+compare 0x4001 0x1
+if 0x1 call 0x8165758
+setdooropened 0x10 0xD
+doorchange
+applymovement 0x3 0x81657A6
+applymovement MOVE_PLAYER 0x81657D0
+waitmovement 0x0
+setdoorclosed 0x10 0xD
+doorchange
+setvar 0x4055 0x1
+clearflag 0x2B
+setvar 0x4050 0x1
+setflag 0x2C
+setflag 0x4001
+warp 0x4 0x3 0xFF 0x6 0xC
+waitstate
+releaseall
+end
+
+'---------------
+#org 0x165730
+applymovement 0x3 0x816576A
+waitmovement 0x0
+return
+
+'---------------
+#org 0x16573B
+applymovement 0x3 0x8165773
+waitmovement 0x0
+return
+
+'---------------
+#org 0x165746
+applymovement 0x3 0x816577D
+applymovement MOVE_PLAYER 0x81657A9
+waitmovement 0x0
+return
+
+'---------------
+#org 0x165758
+applymovement 0x3 0x8165791
+applymovement MOVE_PLAYER 0x81657BC
+waitmovement 0x0
+return
+
+
+'---------
+' Strings
+'---------
+#org 0x17D7A4
+= Professor Aspen: Hey! Wait!\nDon't go out!
+
+#org 0x17D7C2
+= Professor Aspen: It's unsafe!\nWild POKÈMON live in tall grass!\pYou need your own POKÈMON for\nyour protection.\pI know!\nHere, come with me!
+
+
+'-----------
+' Movements
+'-----------
+#org 0x1A7665
+#raw 0x2D 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x1A7653
+#raw 0x62 'Exclamation Mark (!)
+#raw 0xFE 'End of Movements
+
+#org 0x1657A6
+#raw 0x11 'Step Up (Normal)
+#raw 0x60 'Hide
+#raw 0xFE 'End of Movements
+
+#org 0x1657D0
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x60 'Hide
+#raw 0xFE 'End of Movements
+
+#org 0x16576A
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0xFE 'End of Movements
+
+#org 0x165773
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0xFE 'End of Movements
+
+#org 0x16577D
+#raw 0x10 'Step Down (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x2E 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x1657A9
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0xFE 'End of Movements
+
+#org 0x165791
+#raw 0x10 'Step Down (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x2E 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x1657BC
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x12 'Step Left (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0xFE 'End of Movements
