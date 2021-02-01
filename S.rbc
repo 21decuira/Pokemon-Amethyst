@@ -1,0 +1,229 @@
+'---------------
+#org 0x169E26
+lock
+faceplayer
+setvar 0x4001 0x2
+setvar 0x4002 0x4
+setvar 0x4003 0x9E
+setvar 0x4004 0x6
+compare 0x4055 0x3
+if 0x4 goto 0x8169E5C
+compare 0x4055 0x2
+if 0x1 goto 0x8169C59
+msgbox 0x818EA91 MSG_KEEPOPEN '"Those are POKÈ BALLS.\nThey contai..."
+release
+end
+
+'---------------
+#org 0x169E5C
+msgbox 0x818EABD MSG_KEEPOPEN '"That's PROF. Aspen's last POKÈMON."
+release
+end
+
+'---------------
+#org 0x169C59
+applymovement 0x4 0x81A7667
+waitmovement 0x0
+showpokepic 0x4002 0xA 0x3
+textcolor 0x0
+compare 0x4001 0x0
+if 0x1 goto 0x8169C8C
+compare 0x4001 0x1
+if 0x1 goto 0x8169CAB
+compare 0x4001 0x2
+if 0x1 goto 0x8169CCA
+end
+
+'---------------
+#org 0x169C8C
+msgbox 0x818E2EA MSG_YESNO '"I see! Treeko is your choice.\n..."
+compare LASTRESULT 0x1
+if 0x1 goto 0x8169CEC
+compare LASTRESULT 0x0
+if 0x1 goto 0x8169CE9
+end
+
+'---------------
+#org 0x169CAB
+msgbox 0x818E27F MSG_YESNO '"Hm! Totodile is your choice.\nIt's..."
+compare LASTRESULT 0x1
+if 0x1 goto 0x8169CEC
+compare LASTRESULT 0x0
+if 0x1 goto 0x8169CE9
+end
+
+'---------------
+#org 0x169CCA
+msgbox 0x818E20C MSG_YESNO '"Ah! CHARMANDER is your choice.\nYo..."
+compare LASTRESULT 0x1
+if 0x1 goto 0x8169CEC
+compare LASTRESULT 0x0
+if 0x1 goto 0x8169CE9
+end
+
+'---------------
+#org 0x169CEC
+hidepokepic
+hidesprite LASTTALKED
+msgbox 0x818E35D MSG_KEEPOPEN '"This POKÈMON is really quite\nener..."
+call 0x81A66ED
+setflag 0x828
+setflag 0x291
+givepokemon 0x4002 0x5 0x0 0x0 0x0 0x0
+copyvar 0x4031 0x4001
+bufferpokemon 0x0 0x4002
+preparemsg 0x818E385 '"[player] received the [buffer1]\nf..."
+waitmsg
+fanfare 0x13E
+waitfanfare
+msgbox 0x81A571F MSG_YESNO '"Do you want to give a nickname to\..."
+compare LASTRESULT 0x1
+if 0x1 goto 0x8169D44
+compare LASTRESULT 0x0
+if 0x1 goto 0x8169D54
+end
+
+'---------------
+#org 0x169CE9
+hidepokepic
+release
+end
+
+'---------------
+#org 0x1A66ED
+copyvar 0x8012 0x8013
+return
+
+'---------------
+#org 0x169D44
+setvar 0x8004 0x0
+call 0x81A7563
+goto 0x8169D54
+
+'---------------
+#org 0x169D54
+closeonkeypress
+compare 0x4001 0x0
+if 0x1 goto 0x8169D77
+compare 0x4001 0x1
+if 0x1 goto 0x8169D97
+compare 0x4001 0x2
+if 0x1 goto 0x8169D87
+end
+
+'---------------
+#org 0x1A7563
+fadescreen 0x1
+special 0x9E
+waitstate
+return
+
+'---------------
+#org 0x169D77
+applymovement 0x8 0x8169DDA
+waitmovement 0x0
+goto 0x8169DA7
+
+'---------------
+#org 0x169D97
+applymovement 0x8 0x8169DEA
+waitmovement 0x0
+goto 0x8169DA7
+
+'---------------
+#org 0x169D87
+applymovement 0x8 0x8169DE3
+waitmovement 0x0
+goto 0x8169DA7
+
+'---------------
+#org 0x169DA7
+textcolor 0x0
+msgbox 0x818DDAC MSG_KEEPOPEN '"[rival]: I'll take this one, then!"
+hidesprite 0x4004
+textcolor 0x3
+bufferpokemon 0x0 0x4003
+preparemsg 0x818DDCA '"[rival] received the [buffer1]\nfr..."
+waitmsg
+fanfare 0x13E
+waitfanfare
+setvar 0x4055 0x3
+checkflag 0x83E
+if 0x1 call 0x8169DD4
+release
+end
+
+'---------------
+#org 0x169DD4
+setvar 0x4070 0x1
+return
+
+
+'---------
+' Strings
+'---------
+#org 0x18EA91
+= Those are POKÈ BALLS.\nThey contain POKÈMON!
+
+#org 0x18EABD
+= That's PROF. OAK's last POKÈMON.
+
+#org 0x18E2EA
+= I see! BULBASAUR is your choice.\nIt's very easy to raise.\pSo, [player], you want to go with\nthe GRASS POKÈMON BULBASAUR?
+
+#org 0x18E27F
+= Hm! SQUIRTLE is your choice.\nIt's one worth raising.\pSo, [player], you've decided on the\nWATER POKÈMON SQUIRTLE?
+
+#org 0x18E20C
+= Ah! CHARMANDER is your choice.\nYou should raise it patiently.\pSo, [player], you're claiming the\nFIRE POKÈMON CHARMANDER?
+
+#org 0x18E35D
+= This POKÈMON is really quite\nenergetic!
+
+#org 0x18E385
+= [player] received the [buffer1]\nfrom PROF. OAK!
+
+#org 0x1A571F
+= Do you want to give a nickname to\nthis [buffer1]?
+
+#org 0x18DDAC
+= [rival]: I'll take this one, then!
+
+#org 0x18DDCA
+= [rival] received the [buffer1]\nfrom PROF. OAK!
+
+
+'-----------
+' Movements
+'-----------
+#org 0x1A7667
+#raw 0x3 'Face Right
+#raw 0xFE 'End of Movements
+
+#org 0x169DDA
+#raw 0x10 'Step Down (Normal)
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x11 'Step Up (Normal)
+#raw 0xFE 'End of Movements
+
+#org 0x169DEA
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x2E 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
+
+#org 0x169DE3
+#raw 0x10 'Step Down (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x13 'Step Right (Normal)
+#raw 0x2E 'Face Up (Delayed)
+#raw 0xFE 'End of Movements
