@@ -1,0 +1,8 @@
+;no$gba cheat codes library
+;  :cart_header_title:[NTR-]cart_header_gamecode:codebreaker_checksum
+;  [type [RAW] code [,code [,code]]] [;comment]
+;types: CB,GS,V3 (GBA) or AR,CB (NDS)
+;unencrypted codes MAY contain modifiers such like GG..ZZ,##,??, etc.
+;---
+:POKEMON FIRE:BPRE:5E18
+CB 82025840 0044 ;rarecandies
